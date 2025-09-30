@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-gem' viewBox='0 0 16 16'><path d='M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.118a.5.5 0 0 1 .01-.644L3.1.7zm11.386 3.785-1.806-2.41-.776 2.413 2.582-.003zm-3.633.004.961-2.989H4.186l.963 2.995 5.704-.006zM5.47 5.495 8 13.366l2.532-7.876-5.062.005zm-1.371-.999-.78-2.422-1.818 2.425 2.598-.003zM1.499 5.5l5.113 6.817-2.192-6.82L1.5 5.5zm7.889 6.817 5.123-6.83-2.928.002L13.387 12.317z'/></svg>" type="image/svg+xml">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Customer Email - SpayRa</title>
+	<style>
+		:root {
+			--primary: #FFD700;
+			--primary-dark: #DAA520;
+			--secondary: #FFF8DC;
+			--accent: #B8860B;
+			--dark: #000000;
+			--light: #1a1a1a;
+			--gray: #CCCCCC;
+			--gray-light: #2a2a2a;
+			--body-bg: #000000;
+			--card-bg: #1a1a1a;
+			--border: #333333;
+			--cream: #FFFFFF;
+			--box-shadow: 0 8px 32px rgba(255, 215, 0, 0.15);
+			--box-shadow-lg: 0 20px 40px rgba(255, 215, 0, 0.25);
+			--transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Montserrat', sans-serif;
+			background: var(--body-bg);
+			line-height: 1.6;
+			padding: 20px;
+			position: relative;
+			overflow-x: hidden;
+			color: var(--cream);
+		}
+
+		body::before {
+			content: '';
+			position: fixed;
+			top: -50%;
+			left: -50%;
+			width: 200%;
+			height: 200%;
+			background: radial-gradient(circle at 30% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+			animation: float 20s ease-in-out infinite;
+			z-index: -1;
+		}
+
+		@keyframes float {
+			0%, 100% { transform: translateY(0px) rotate(0deg); }
+			50% { transform: translateY(-20px) rotate(180deg); }
+		}
+
+		.container {
+			background: var(--card-bg);
+			border-radius: 25px;
+			box-shadow: var(--box-shadow-lg);
+			width: 100%;
+			max-width: 600px;
+			margin: 0 auto;
+			overflow: hidden;
+			position: relative;
+			border: 2px solid var(--border);
+		}
+
+		.container::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+			animation: shimmer 3s infinite;
+		}
+
+		@keyframes shimmer {
+			0% { left: -100%; }
+			100% { left: 100%; }
+		}
+
+		h1 {
+			color: var(--cream);
+			margin: 0;
+			font-size: 2.5rem;
+			font-weight: 800;
+			font-family: 'Playfair Display', serif;
+			text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+			position: relative;
+			z-index: 2;
+		}
+
+		h2 {
+			color: var(--cream);
+			margin-bottom: 20px;
+			font-size: 1.8rem;
+			font-weight: 700;
+			font-family: 'Playfair Display', serif;
+		}
+
+		h3 {
+			color: var(--cream);
+			margin-bottom: 8px;
+			font-size: 1.4rem;
+			font-weight: 700;
+			font-family: 'Playfair Display', serif;
+		}
+
+		h4 {
+			color: var(--gray);
+			font-size: 1rem;
+			font-weight: 600;
+		}
+
+		p {
+			color: var(--gray);
+			margin-bottom: 16px;
+			font-size: 1rem;
+		}
+
+		.otp {
+			font-weight: 800;
+			color: var(--dark);
+			font-size: 2.5rem;
+			background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+			padding: 20px 40px;
+			border-radius: 25px;
+			display: inline-block;
+			margin: 25px 0;
+			letter-spacing: 6px;
+			box-shadow: var(--box-shadow-lg);
+			border: 3px solid var(--primary);
+			position: relative;
+			overflow: hidden;
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.otp::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+			animation: otpShimmer 2s infinite;
+		}
+
+		@keyframes otpShimmer {
+			0% { left: -100%; }
+			100% { left: 100%; }
+		}
+
+		.header {
+			background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+			color: var(--dark);
+			padding: 40px 30px;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.header::before {
+			content: '';
+			position: absolute;
+			top: -50%;
+			right: -50%;
+			width: 100%;
+			height: 200%;
+			background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+			animation: headerPulse 4s ease-in-out infinite;
+		}
+
+		@keyframes headerPulse {
+			0%, 100% { transform: scale(1); opacity: 0.5; }
+			50% { transform: scale(1.1); opacity: 0.8; }
+		}
+
+		.content {
+			padding: 50px 40px;
+			text-align: center;
+			position: relative;
+			z-index: 2;
+		}
+
+		.footer {
+			background: var(--dark);
+			padding: 40px 30px;
+			text-align: center;
+			color: var(--cream);
+			border-top: 2px solid var(--border);
+		}
+
+		.gem-icon {
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			background: var(--dark);
+			border-radius: 50%;
+			margin-right: 15px;
+			vertical-align: middle;
+			position: relative;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+		}
+
+		.gem-icon::before {
+			content: '💎';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 20px;
+		}
+
+		.luxury-border {
+			position: relative;
+			padding: 20px;
+		}
+
+		.luxury-border::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(45deg, var(--primary), var(--primary-dark), var(--accent), var(--primary));
+			background-size: 400% 400%;
+			animation: gradientShift 3s ease infinite;
+			border-radius: 15px;
+			padding: 2px;
+			z-index: -1;
+		}
+
+		@keyframes gradientShift {
+			0%, 100% { background-position: 0% 50%; }
+			50% { background-position: 100% 50%; }
+		}
+
+		.welcome-text {
+			background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			font-weight: 800;
+		}
+
+		@media (max-width: 600px) {
+			.container {
+				margin: 10px;
+				max-width: calc(100% - 20px);
+			}
+			
+			.header, .content, .footer {
+				padding: 30px 20px;
+			}
+			
+			h1 {
+				font-size: 2rem;
+			}
+			
+			.otp {
+				font-size: 2rem;
+				padding: 15px 30px;
+				letter-spacing: 4px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h1><span class="gem-icon"></span>SpayRa</h1>
+			<p style="color: var(--dark); font-weight: 600; margin: 0; font-size: 1.1rem;">Premium Luxury Marketplace</p>
+		</div>
+		<div class="content">
+			<div class="luxury-border">
+				<h2>Hello <span class="welcome-text" th:text="${customer.name}">Valued Customer</span>,</h2>
+				<p style="font-size: 1.1rem; color: var(--cream); margin-bottom: 30px;">Welcome to the world of luxury with SpayRa. Your exclusive access awaits.</p>
+				<p style="color: var(--gray); font-size: 1rem;">Your OTP for Account Creation is:</p>
+				<div class="otp" th:text="${customer.otp}">123456</div>
+				<p style="color: var(--gray); font-size: 1rem; line-height: 1.8;">Please use this OTP to complete your account creation process and unlock access to our curated collection of premium products.</p>
+				<div style="margin-top: 30px; padding: 20px; background: rgba(255, 215, 0, 0.1); border-radius: 15px; border-left: 4px solid var(--primary);">
+					<p style="color: var(--cream); margin: 0; font-weight: 600;">🔒 This OTP is valid for 10 minutes and is for your security.</p>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<h3 style="color: var(--primary);">Thanks and Regards</h3>
+			<h4 style="color: var(--cream); font-family: 'Playfair Display', serif;">The SpayRa Luxury Team</h4>
+			<div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border);">
+				<p style="color: var(--gray); font-size: 0.9rem; margin: 0;">Experience luxury redefined | SpayRa Premium Marketplace</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
